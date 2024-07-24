@@ -114,7 +114,7 @@ Das erzeugt ein Speicherleck - Speicherbereiche, die blockiert bleiben und nicht
 Hier nochmal der Sachverhalt grafisch dargestellt: 
 
 
-￼![alt text](1.png "Title")
+￼![alt text](1.png "Zwei Objekte, die sich gegenseitig referenzieren. Eine Variable verweist auf eines der Objekte")
 
 
 	Zwei Objekte, die sich gegenseitig referenzieren. Eine Variable verweist auf eines der Objekte 
