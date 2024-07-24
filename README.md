@@ -12,7 +12,7 @@ Da ist es auch nicht relevant, dass uns Gigabytes an RAM-Speicher zur Verfügung
 
 Doch zunächst schauen wir uns an, auf welche Arten Swift Speicher zuweisen kann. 
 
-Wert- und Referenztypen
+### Wert- und Referenztypen
 
 Die Swift Programmiersprache kennt zwei Arten von Datentypen:
 
@@ -35,7 +35,7 @@ Wenn man eine Funktion aufruft und einen Parameter mit übergibt, und dieser ist
 Bei Referenztypen wird die Referenz, also die Adresse des Objekts übergeben, also „Call by Reference“.  
 
 
-Heap und Stack
+### Heap und Stack
 
 Wer über Wert- und Referenztypen redet, der kommt um deren Speicherverwaltung nicht herum. 
 Den Wert- und Referenztypen werden auf unterschiedliche Art und Weise Speicher zugewiesen:  entweder über den Heap oder über den Stack 
@@ -47,7 +47,7 @@ Der Stack speichert Wertetypen wie z.B. Enums oder Structs und ist eine Last-in-
 Der Stack hat schnelle Zugriffszeiten, da die Speicherzuweisungen zur Compilezeit geschehen.
 
 
-Heap - der kostspielige Referenztypenspeicher 
+### Heap - der kostspielige Referenztypenspeicher 
 
 Bei Referenztypen wie z.B. Exemplaren einer Klasse wird der Stack nicht genutzt, da sich Objekte dynamisch in der Speichergröße ändern können. 
 
@@ -65,7 +65,7 @@ Das Problem dabei ist ja, dass der Entwickler sich um mehrere Dinge gleichzeitig
 
 Können wir nicht etwas bauen, das uns die ganze Speicherverwaltungsarbeit abnimmt?  So dass wir uns nur auf eine Sache konzentrieren können? 
 
-Garbage Collection - der Müllsammler 
+### Garbage Collection - der Müllsammler 
 
 Vorhang auf für die automatisierte Speicherbereinigung, auch Garbage Collection genannt! 
 Die Garbage Collection wurde erstmalig in LISP (1956) eingeführt, denn man war der Meinung, dass ein Programmierer sich primär um eine Sache - das Entwickeln von Algorithmen für eine Fachdomäne - kümmern sollte und sich noch zusätzlich mit Speicherverwaltungsaufgaben herumschlagen sollte. 
@@ -75,7 +75,7 @@ Also: Lass die Speicherverwaltung doch den Computer machen.
 Im Prinzip ist die Garbage Collection ein Prozess, der im Hintergrund läuft und bei allen „root“-Objekten schaut, ob sie erreichbar sind und andere Objekte referenzieren. Alle so erreichbaren Objekte werden markiert („Mark“).  Findet der Garbage Collector keine weiteren Objekte mehr, werden alle nicht markierten Objekte, die im Heap vorhanden sind, entfernt. Diese sind offenbar verwaist, werden nicht mehr referenziert. Sie werden also nicht mehr gebraucht und deren Speicher kann freigegeben werden („Sweep“). Der CG-Algorithmus nennt sich somit „Mark and sweep“.  
 
  
-Eine Alternative zur Garbage Collection : der Retain Count 
+### Eine Alternative zur Garbage Collection : der Retain Count 
 
 Warum hat Swift keine Garbage Collection? Und was verwendet Swift stattdessen?
 
@@ -122,7 +122,7 @@ Hier nochmal der Sachverhalt grafisch dargestellt:
 Verweist die Variable nicht mehr auf das Objekt, wird der Retain Count von Objekt a um Eins verringert und beide Objekte haben denselben Retain Count von 1 und es kann nicht mehr von aussen auf die Objekte zugegriffen werden. Wir haben ein Speicherleck, da beide Objekte den retain Count von 1 für immer beibehalten werden.
 
 
-## Schwache Referenzen
+### Schwache Referenzen
 
 Um das zu verhindern, wurde das Konzept der schwachen und starken Referenz eingeführt
 Eine schwache Referenz hält einen Verweis auf ein Objekt, ohne dessen Retain Count zu erhöhen.
@@ -139,7 +139,7 @@ wird die schwache Referenz automatisch auf Null gesetzt.
 Verweist die Variable nicht mehr auf das Objekt, wird der Retain Count von Objekt a um Eins verringert, der retainCount wird zu Null, da wir hier eine schwache Referenz von b auf a haben. Objekt a kann gelöscht werden, der retain Count von b verringert sich auf Null und wird dann ebenfalls gelöscht. Das Speicherleck wurde so vermieden. 
 
 
-Unbesetzte Referenzen 
+### Unbesetzte Referenzen 
 
 Neben der schwachen Referenz, die nur mit Optionals arbeitet, gibt es noch die unbesetzte („unowned“) Referenz.
 Eine unbesetzte Referenz hält ebenfalls einen Verweis auf ein Objekt, ohne dessen Referenzzähler zu erhöhen.
