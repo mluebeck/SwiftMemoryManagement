@@ -113,16 +113,13 @@ Das erzeugt ein Speicherleck - Speicherbereiche, die blockiert bleiben und nicht
 
 Hier nochmal der Sachverhalt grafisch dargestellt: 
 
+![alt text](1.png "Zwei Objekte, die sich gegenseitig referenzieren")
 
-￼![alt text](1.png "Zwei Objekte, die sich gegenseitig referenzieren. Eine Variable verweist auf eines der Objekte")
+*Zwei Objekte, die sich gegenseitig referenzieren. Eine Variable verweist auf eines der Objekte*
 
+![alt text](2.png "Zwei Objekte, die sich gegenseitig referenzieren")
 
-	Zwei Objekte, die sich gegenseitig referenzieren. Eine Variable verweist auf eines der Objekte 
-
-￼
-	Verweist die Variable nicht mehr auf das Objekt, wird der Retain Count von Objekt a um Eins verringert und beide Objekte haben 
-	denselben Retain Count von 1 und es kann nicht mehr von aussen auf die Objekte zugegriffen werden. 
-	Wir haben ein Speicherleck, da beide Objekte den retain Count von 1 für immer beibehalten werden.
+Verweist die Variable nicht mehr auf das Objekt, wird der Retain Count von Objekt a um Eins verringert und beide Objekte haben denselben Retain Count von 1 und es kann nicht mehr von aussen auf die Objekte zugegriffen werden. Wir haben ein Speicherleck, da beide Objekte den retain Count von 1 für immer beibehalten werden.
 
 
 Schwache Referenzen
@@ -133,18 +130,14 @@ Eine schwache Referenz hält einen Verweis auf ein Objekt, ohne dessen Retain Co
 Wenn das referenzierte Objekt freigegeben wird (d.h., wenn sein retain count Null wird), 
 wird die schwache Referenz automatisch auf Null gesetzt.
 
-￼
+￼![alt text](3.png "Zwei Objekte, die sich gegenseitig referenzieren")
 
-	Zwei Objekte, die sich gegenseitig referenzieren. Eine Variable verweist auf eines der Objekte. 
-	In diesem Fall wird Objekt a von Objekt b schwach referenziert.
+Zwei Objekte, die sich gegenseitig referenzieren. Eine Variable verweist auf eines der Objekte. In diesem Fall wird Objekt a von Objekt b schwach referenziert.
 
+![alt text](4.png "Zwei Objekte, die sich gegenseitig referenzieren")
 
+Verweist die Variable nicht mehr auf das Objekt, wird der Retain Count von Objekt a um Eins verringert, der retainCount wird zu Null, da wir hier eine schwache Referenz von b auf a haben. Objekt a kann gelöscht werden, der retain Count von b verringert sich auf Null und wird dann ebenfalls gelöscht. Das Speicherleck wurde so vermieden. 
 
-
-￼
-
-	Verweist die Variable nicht mehr auf das Objekt, wird der Retain Count von Objekt a um Eins verringert, der retainCount wird zu Null, da wir hier 	eine schwache Referenz von b auf a haben. Objekt a kann gelöscht werden, der retain Count von b verringert sich auf Null und wird dann 
-	ebenfalls gelöscht. Das Speicherleck wurde so vermieden. 
 
 Unbesetzte Referenzen 
 
