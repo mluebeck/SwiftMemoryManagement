@@ -1,7 +1,7 @@
 # Was ist Speicherverwaltung? 
 
 So ziemlich jeder, der Software entwickelt und Programme schreibt, kommt um das Thema Speicherverwaltung nicht herum.  
-Software zu entwickeln bedeutet, Algorithmen zu entwicklen, die auf Daten zugreifen und Daten verändern, die irgendwo gespeichert sind, sei es im Register einer CPU, im RAM oder auf Festplatte. 
+Software zu schreiben bedeutet, Algorithmen zu entwickeln , die auf Daten zugreifen und Daten verändern, die irgendwo gespeichert sind, sei es im Register einer CPU, im RAM oder auf Festplatte. 
 Bei der Speicherverwaltung im Rahmen von Programmiersprachen werden Datenstrukturen im Speicher abgelegt, die dann irgendwann wieder aus dem Speicher entfernt werden müssen, wenn deren Zweck erfüllt ist. 
 
 In einer Idealen Welt hätten wir unendlich viel (RAM-)Speicher und müssten uns nicht um die Speicherverwaltung kümmern. 
