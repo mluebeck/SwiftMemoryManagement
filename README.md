@@ -151,8 +151,7 @@ Referenzen und Closures
 
 Ein Objekt kann aber nicht nur Referenzen auf andere Objekten haben, sondern auch eine Referenz auf sich selbst. 
 Dies kann auftreten, wenn eine Klasse mit Closures arbeitet:
-
-class MyClass {
+`class MyClass {
     var myClosure: () -> Void = {}
 
     func setupClosure() {
@@ -165,7 +164,7 @@ class MyClass {
     deinit {
         print("MyClass is being deinitialized")
     }
-}
+}`
 
 func createAndDestroyMyClass() {
     let myInstance = MyClass()
