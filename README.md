@@ -147,10 +147,10 @@ Im Gegensatz zu schwachen Referenzen wird eine unbesetzte Referenz nicht automat
 Eine unbesetzte Referenz wird verwendet, wenn eine Referenz erwartet, dass das Objekt während der gesamten Lebensdauer der Referenz existiert, aber zyklische Referenzen vermieden werden sollen. 
 Es muss aber sichergestellt sein, dass das Objekt existiert, solange die unbesetzte Referenz verwendet wird!
 
-Referenzen und Closures 
+### Referenzen auf sich selbst 
 
 Ein Objekt kann aber nicht nur Referenzen auf andere Objekten haben, sondern auch eine Referenz auf sich selbst. 
-Dies kann auftreten, wenn eine Klasse mit Closures arbeitet:
+Dies kann auftreten, wenn eine Klasse mit Delegates oder Closures arbeitet, wie z.B. hier:
 ```
 class MyClass {
     var myClosure: () -> Void = {}
@@ -176,13 +176,14 @@ createAndDestroyMyClass()
 ```
 
 In diesem Fall besteht eine starke Referenz von einem Objekt zu sich selbst, und somit haben wir einen retain cycle.
-Die Methode „deInit“ wird nie aufgerufen.
+Die Methode „deinit“ wird nie aufgerufen.
 
 Um diese Referenz „weak“ zu machen, sieht Swift für Closures „Capture Lists“ vor. 
 In dieser Liste können wir für Variablen, die für Closures sichtbar sind (wie z.B. self) angeben, ob die Variable innerhalb der Closure strong, weak oder unowned sein soll. 
   
 Im obigen Beispiel sähe das so aus: 
 ```
+...
 func setupClosure() {
     myClosure = {
         // schwache Referenz zu self per capture list: 
@@ -190,7 +191,15 @@ func setupClosure() {
         let _ = self
     }
 }
+...
 ```
+Nun wird eine schwache Referenz zu sich selbst erzeugt. deinit wird aufgerufen und somit wird ein retain cycle vermieden. 
+
+
+### Fazit 
+
+Softwareentwicklung unter Swift bedeutet auch, dass wir uns mit der Speicherverwaltung auseinander setzen müssen, allerdings nimmt uns Swift einen Großteil der Arbeit ab. Wir müssen bei Objekten darauf achten, welche Beziehungen sie zueinander haben, ob es zirkuläre Referenzen gibt (vor allem bei Delegates und Closures). Wir wissen nun, wie wir diese zirkulären Referenzen auflösen können, Swift bietet uns dafür die geeigneten Sprachmittel an - und auch Xcode hat noch so einige Tools, mit denen wir Speicherlecks und Speicherverbrauch aufspüren und messen können. Mehr dazu dann in einem weiteren Artikel! 
+
 
 
 
