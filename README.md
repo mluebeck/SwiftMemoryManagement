@@ -19,16 +19,9 @@ Die Swift Programmiersprache kennt zwei Arten von Datentypen:
 Da sind zum einen die Werttypen wie Strukturen (struct), Aufzählungen (Enumerationen, enum) und primitive Datentypen wie Int, Double und Bool. Werttypen unterstützen die Unveränderlichkeit besser, da bei jeder Änderung eine Kopie erstellt wird. Dies führt zu (Thread-)sichererem Code, da Zustandsänderungen lokal und vorhersehbar sind. Bei Werttypen ist die Speicherverwaltung einfacher (dazu später mehr). 
 
 Referenztypen in Swift sind Typen, deren Instanzen bei der Zuweisung oder beim Übergang an Funktionen nicht kopiert, sondern referenziert werden. 
-Referenziert heisst, dass nur die Speicheradresse übergeben wird. 
-Referenztypen ermöglichen es, dass mehrere Variablen oder Instanzen auf denselben Objektzustand zugreifen und ihn ändern können.  
+Referenziert heisst, dass nur die Speicheradresse übergeben wird. Wenn man eine Funktion mit einem Referenztyp als Parameter aufruft, wird nur die Adresse übergeben - das nennt sich "Call by reference", im Gegensatz zu Werte-Parametern, die werden per "Call by value" als Kopie übergeben. 
 
-Das primäre Beispiel für Referenztypen sind Klassen. 
-
-Ausserdem unterstützen sie Vererbung und Polymorphismus, was die Erstellung von flexiblen und wiederverwendbaren Codehierarchien ermöglicht.
-
-Sie haben eine Identität (sie können verglichen werden, um festzustellen, ob sie dasselbe Objekt sind), was in bestimmten Szenarien nützlich ist, wie z.B. bei der Verwaltung von Zuständen in einem UI-Framework oder bei der Implementierung von Singleton-Mustern.
-
-Bei komplexen Datenstrukturen oder -modellen kann es effizienter sein, mit Referenzen statt mit Kopien zu arbeiten, insbesondere wenn die Daten häufig geändert werden.
+Referenztypen ermöglichen es, dass mehrere Variablen oder Instanzen auf denselben Objektzustand zugreifen und ihn ändern können. Das primäre Beispiel für Referenztypen sind Klassen. Ausserdem unterstützen sie Vererbung und Polymorphismus, was die Erstellung von flexiblen und wiederverwendbaren Codehierarchien ermöglicht. Sie haben eine Identität (sie können verglichen werden, um festzustellen, ob sie dasselbe Objekt sind), was in bestimmten Szenarien nützlich ist, wie z.B. bei der Verwaltung von Zuständen in einem UI-Framework oder bei der Implementierung von Singleton-Mustern. Bei komplexen Datenstrukturen oder -modellen kann es effizienter sein, mit Referenzen statt mit Kopien zu arbeiten, insbesondere wenn die Daten häufig geändert werden.
 
 ### Heap und Stack
 
@@ -187,7 +180,7 @@ Nun wird eine schwache Referenz zu sich selbst erzeugt. deinit wird aufgerufen u
 
 ### Fazit 
 
-Softwareentwicklung unter Swift bedeutet auch, dass wir uns mit der Speicherverwaltung auseinander setzen müssen, allerdings nimmt uns Swift einen Großteil der Arbeit ab. Wir müssen bei Objekten darauf achten, welche Beziehungen sie zueinander haben, ob es zirkuläre Referenzen gibt (vor allem bei Delegates und Closures). Wir wissen nun, wie wir diese zirkulären Referenzen auflösen können, Swift bietet uns dafür die geeigneten Sprachmittel an - und auch Xcode hat noch so einige Tools, mit denen wir Speicherlecks und Speicherverbrauch aufspüren und messen können. Mehr dazu dann in einem weiteren Artikel! 
+Softwareentwicklung unter Swift bedeutet auch, dass wir uns mit der Speicherverwaltung auseinander setzen müssen, allerdings nimmt uns Swift einen Großteil der Arbeit ab. Sa ganz entlässt uns Swift aber nicht aus der Verantwortung: Wir müssen bei Objekten darauf achten, welche Beziehungen sie zueinander haben, ob es zirkuläre Referenzen gibt (vor allem bei Delegates und Closures). Wir wissen nun, wie wir diese zirkulären Referenzen auflösen können - per schwache Referenzen. Swift bietet uns dafür die geeigneten Sprachmittel an - und auch Xcode hat noch so einige Tools, mit denen wir Speicherverbrauch messen und Speicherlecks aufspüren können. Mehr dazu dann in einem weiteren Artikel! 
 
 
 
