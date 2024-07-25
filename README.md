@@ -30,28 +30,17 @@ Sie haben eine Identität (sie können verglichen werden, um festzustellen, ob s
 
 Bei komplexen Datenstrukturen oder -modellen kann es effizienter sein, mit Referenzen statt mit Kopien zu arbeiten, insbesondere wenn die Daten häufig geändert werden.
 
-Wenn man eine Funktion aufruft und einen Parameter mit übergibt, und dieser ist ein Wertetyp, wird dieser Parameter kopiert : „Call by Value“. 
-
-Bei Referenztypen wird die Referenz, also die Adresse des Objekts übergeben, also „Call by Reference“.  
-
-
 ### Heap und Stack
 
-Wer über Wert- und Referenztypen redet, der kommt um deren Speicherverwaltung nicht herum. 
-Den Wert- und Referenztypen werden auf unterschiedliche Art und Weise Speicher zugewiesen:  entweder über den Heap oder über den Stack 
+Wer über Wert- und Referenztypen redet, der kommt um deren Speicherverwaltung nicht herum. Den Wert- und Referenztypen werden auf unterschiedliche Art und Weise Speicher zugewiesen:  entweder über den Heap oder über den Stack 
 
-Stack - der einfach schnelle Wertetypenspeicher 
+### Stack - der einfach schnelle Wertetypenspeicher 
 
-Der Stack speichert Wertetypen wie z.B. Enums oder Structs und ist eine Last-in-first-out - Datenstruktur (LIFO): Wenn z.B. eine Funktion aufgerufen wird, werden alle lokalen Daten in der Funktion auf den Stack gepusht. Wurde die Funktion abgearbeitet, werden alle Daten vom Stack entfernt. 
-
-Der Stack hat schnelle Zugriffszeiten, da die Speicherzuweisungen zur Compilezeit geschehen.
-
+Der Stack speichert Wertetypen wie z.B. Enums oder Structs und ist eine Last-in-first-out - Datenstruktur (LIFO): Wenn z.B. eine Funktion aufgerufen wird, werden alle lokalen Daten in der Funktion auf den Stack gepusht. Wurde die Funktion abgearbeitet, werden alle Daten vom Stack entfernt. Der Stack hat schnelle Zugriffszeiten, da die Speicherzuweisungen zur Compilezeit geschehen.
 
 ### Heap - der kostspielige Referenztypenspeicher 
 
-Bei Referenztypen wie z.B. Exemplaren einer Klasse wird der Stack nicht genutzt, da sich Objekte dynamisch in der Speichergröße ändern können. 
-
-Immer, wenn wir in Swift ein neues Exemplar eines Objekts erzeugen, kommt der Heap ins Spiel: Mit den Heap kann beliebig großer Speicherbereich zugewiesen werden, im Gegensatz zum Stack passiert die  Speicherzuweisung während der Laufzeit. Verglichen mit dem Stack ist der Zugriff langsamer und kostet mehr Ressourcen, u.a. wegen der notwenigen Thread-sicherheit, da der Heap von allen genutzt wird. Fordern wir einen Speicherbereich an, sucht der Heap nach einem passenden Speicherbereich und gibt diesen zurück. Wird der Speicherbereich nicht mehr benötigt, muss dem Heap mitgeteilt werden, den Speicher wieder freizugeben. 
+Bei Referenztypen wie z.B. Exemplaren einer Klasse wird der Stack nicht genutzt, da sich Objekte dynamisch in der Speichergröße ändern können. Immer, wenn wir in Swift ein neues Exemplar eines Objekts erzeugen, kommt der Heap ins Spiel: Mit den Heap kann beliebig großer Speicherbereich zugewiesen werden, im Gegensatz zum Stack passiert die  Speicherzuweisung während der Laufzeit. Verglichen mit dem Stack ist der Zugriff langsamer und kostet mehr Ressourcen, u.a. wegen der notwenigen Thread-sicherheit, da der Heap von allen genutzt wird. Fordern wir einen Speicherbereich an, sucht der Heap nach einem passenden Speicherbereich und gibt diesen zurück. Wird der Speicherbereich nicht mehr benötigt, muss dem Heap mitgeteilt werden, den Speicher wieder freizugeben. 
 
 Nun wissen wir also, dass Enums sich Speicher vom Heap besorgen und Objekte welchen vom Heap anfordern können. 
 
