@@ -1,4 +1,4 @@
-# Was ist Speicherverwaltung? 
+# Speicherverwaltung in Swift - was man dazu wissen muss 
 
 So ziemlich jeder, der Software entwickelt und Programme schreibt, kommt um das Thema Speicherverwaltung nicht herum.  
 Software zu schreiben bedeutet, Algorithmen zu entwickeln , die auf Daten zugreifen und Daten verändern, die irgendwo gespeichert sind, sei es im Register einer CPU, im RAM oder auf Festplatte. 
