@@ -166,7 +166,6 @@ class MyClass {
         print("MyClass is being deinitialized")
     }
 }
-```
 
 func createAndDestroyMyClass() {
     let myInstance = MyClass()
@@ -174,6 +173,7 @@ func createAndDestroyMyClass() {
 }
 
 createAndDestroyMyClass()
+```
 
 In diesem Fall besteht eine starke Referenz von einem Objekt zu sich selbst, und somit haben wir einen retain cycle.
 Die Methode „deInit“ wird nie aufgerufen.
