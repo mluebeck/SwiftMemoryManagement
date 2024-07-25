@@ -182,15 +182,15 @@ Um diese Referenz „weak“ zu machen, sieht Swift für Closures „Capture Lis
 In dieser Liste können wir für Variablen, die für Closures sichtbar sind (wie z.B. self) angeben, ob die Variable innerhalb der Closure strong, weak oder unowned sein soll. 
   
 Im obigen Beispiel sähe das so aus: 
-
-  func setupClosure() {
-        myClosure = {
-            // schwache Referenz zu self per capture list: 
-	    [weak self] in 
-            let _ = self
-        }
+```
+func setupClosure() {
+    myClosure = {
+        // schwache Referenz zu self per capture list: 
+        [weak self] in 
+        let _ = self
     }
-
+}
+```
 
 
 
