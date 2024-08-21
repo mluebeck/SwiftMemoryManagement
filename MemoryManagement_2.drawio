@@ -1,0 +1,46 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.5 Chrome/126.0.6478.183 Electron/31.3.0 Safari/537.36" version="24.7.5">
+  <diagram name="Seite-1" id="GG33hVvD4Mq270kR2WXx">
+    <mxGraphModel dx="1114" dy="788" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="GdJqkF-vg8Bn_CHp2c6F-9" value="&lt;div&gt;Objekt A&lt;/div&gt;&lt;div&gt;(retain Count = 1)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="267" y="197" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GdJqkF-vg8Bn_CHp2c6F-10" value="Objekt B&amp;nbsp;&lt;div&gt;(retain Count = 1)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="521" y="197" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GdJqkF-vg8Bn_CHp2c6F-11" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="GdJqkF-vg8Bn_CHp2c6F-9" target="GdJqkF-vg8Bn_CHp2c6F-10">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="557" y="517" as="sourcePoint" />
+            <mxPoint x="607" y="467" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GdJqkF-vg8Bn_CHp2c6F-12" value="&lt;div&gt;starke Referenz&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=none;" vertex="1" connectable="0" parent="GdJqkF-vg8Bn_CHp2c6F-11">
+          <mxGeometry x="-0.1333" relative="1" as="geometry">
+            <mxPoint x="2" y="11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GdJqkF-vg8Bn_CHp2c6F-13" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="GdJqkF-vg8Bn_CHp2c6F-10" target="GdJqkF-vg8Bn_CHp2c6F-9">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="557" y="517" as="sourcePoint" />
+            <mxPoint x="607" y="467" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="581" y="287" />
+              <mxPoint x="417" y="287" />
+              <mxPoint x="327" y="287" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GdJqkF-vg8Bn_CHp2c6F-14" value="starke Referenz" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=none;" vertex="1" connectable="0" parent="GdJqkF-vg8Bn_CHp2c6F-13">
+          <mxGeometry x="-0.1" y="-1" relative="1" as="geometry">
+            <mxPoint x="-19" y="17" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GdJqkF-vg8Bn_CHp2c6F-16" value="Variable x wird auf nil gesetzt" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="55" y="211" width="143" height="32" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
